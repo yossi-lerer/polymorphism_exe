@@ -69,3 +69,28 @@ lg = SmartTV("LG", True, 8)
 alexa =  SmartSpeaker("Alexa", True, "Bohemian Rhapsody")
 lg.status()
 alexa.status()
+# step 4 - Mixed List Activation
+class Device:
+    def __init__(self, name):
+        self.name = name
+    def activate(self):
+        print("hi hello from device")
+class SmartTV(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"hi hello from smart tv {self.name}")
+class SmartLamp(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"hi hello from smart SmartLamp {self.name}")
+class SmartSpeaker(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"hi hello from smart SmartSpeaker {self.name}")
+
+devices = [SmartTV("LG"), SmartLamp("Desk Lamp"), SmartSpeaker("Echo")]
+for device in devices:
+    device.activate()
