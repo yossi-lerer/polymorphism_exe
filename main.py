@@ -148,3 +148,36 @@ class Smarthome(Device):
 smart_list = [SmartTV("LG"), SmartLamp("Desk Lamp"), SmartSpeaker("Echo"), Smarthome("home ped")]
 for device in smart_list:
     device.run_command("say hi")
+# step 7 - Smart Home Schedule
+class Device:
+    def __init__(self, name):
+        self.name = name
+    def run_schedule(self, hour):
+        print(f"{self.name} is idle.")
+class SmartLamp(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_schedule(self, hour):
+        if 18 <= hour <= 23:
+            print(f"{self.name}: turning on")
+        else:
+            print("off")
+class SmartAC(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_schedule(self, hour):
+        if 12 <= hour <= 20:
+            print(f"{self.name}: turning on")
+        else:
+            print("off")
+class SmartTV(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_schedule(self, hour):
+        if 20 <= hour <= 23:
+            print(f"{self.name}: turning on")
+        else:
+            print("off")
+list_device = [SmartLamp("Bedroom Lamp"), SmartAC("Living Room AC"), SmartTV("Samsung TV")]
+for device in list_device:
+    device.run_schedule(15)
