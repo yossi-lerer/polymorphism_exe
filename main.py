@@ -94,3 +94,24 @@ class SmartSpeaker(Device):
 devices = [SmartTV("LG"), SmartLamp("Desk Lamp"), SmartSpeaker("Echo")]
 for device in devices:
     device.activate()
+# step 5 - Volume Control Override
+class Device:
+    def __init__(self, name):
+        self.name = name
+    def set_volume(self, level):
+        print(f"Device {self.name} volume set to {level}.")
+
+class SmartSpeaker(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def set_volume(self, level):
+        print(f"Speaker {self.name} is now at volume {level}/10. {'Loud!' if level > 7 else ''}")
+
+class SmartTV(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def set_volume(self, level):
+        print(f"TV {self.name} volume: {level}. {'Muted!' if level == 0 else ''}")
+bose = SmartSpeaker("Bose") 
+bose.set_volume(9)
+bose.set_volume(3)
