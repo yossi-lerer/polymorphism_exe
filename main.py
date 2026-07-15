@@ -181,3 +181,37 @@ class SmartTV(Device):
 list_device = [SmartLamp("Bedroom Lamp"), SmartAC("Living Room AC"), SmartTV("Samsung TV")]
 for device in list_device:
     device.run_schedule(15)
+# step 8 - Energy Usage Override
+class Device:
+    def __init__(self, name):
+        self.name = name
+    def energy_usage(self):
+        print("10 (watts)")
+
+class SmartTV(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def energy_usage(self):
+        print(f"{self.name} 150 (watts)")
+
+class SmartAC(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def energy_usage(self):
+        print(f"{self.name} 900 (watts)")
+
+class SmartLamp(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def energy_usage(self):
+        print(f"{self.name} 8 (watts)")
+
+class SmartSpeaker(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def energy_usage(self):
+        print(f"{self.name} 30 (watts)")
+        
+devices = [SmartTV("LG"), SmartAC("AC"), SmartLamp("LAMP"), SmartSpeaker("Speaker")]
+for device in devices:
+    device.energy_usage()
