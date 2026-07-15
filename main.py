@@ -215,3 +215,49 @@ class SmartSpeaker(Device):
 devices = [SmartTV("LG"), SmartAC("AC"), SmartLamp("LAMP"), SmartSpeaker("Speaker")]
 for device in devices:
     device.energy_usage()
+# step 9 - Consistent Control with Polymorphism
+class Device:
+    def __init__(self, name):
+        self.name = name
+    def activate(self):
+        print(f"Device {self.name} is now on.")
+    def deactivate(self):
+        print(f"Device {self.name} is now off.")
+    def status(self):
+        print(f"status: {self.name}")
+smarttv = Device("smart tv LG")
+smarttv.activate()
+smarttv.deactivate()
+smarttv.status()
+smart_home = Device("smart home")
+smart_home.activate()
+smart_home.deactivate()
+smart_home.status()
+smart_ped = Device("smart ped")
+smart_ped.activate()
+smart_ped.deactivate()
+smart_ped.status()
+smart_phone = Device("smart phone")
+smart_phone.activate()
+smart_phone.deactivate()
+smart_phone.status()
+smart_power = Device("smart power")
+smart_power.activate()
+smart_power.deactivate()
+smart_power.status()
+class HomeSystem:
+    def __init__(self):
+        self.devices_lst = [Device("smart tv LG"), Device("smart home"), Device("smart ped"), Device("smart phone"), Device("smart power")]
+    def activate_all(self):
+        for device in self.devices_lst:
+            device.activate()
+    def deactivate_all(self):
+        for device in self.devices_lst:
+            device.deactivate()
+    def system_report(self):
+        for device in self.devices_lst:
+            device.status()
+    
+HomeSystem().activate_all()
+HomeSystem().deactivate_all()
+HomeSystem().system_report()
