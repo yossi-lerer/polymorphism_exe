@@ -115,3 +115,36 @@ class SmartTV(Device):
 bose = SmartSpeaker("Bose") 
 bose.set_volume(9)
 bose.set_volume(3)
+# step 6 - Uniform Command Execution
+class Device:
+    def __init__(self, name):
+        self.name = name
+    def run_command(self, cmd):
+        print(f"Device {self.name} received command: {cmd}.")
+
+class SmartTV(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_command(self, cmd):
+        print(f"smart tv {self.name} received command: {cmd}.")
+        
+class SmartLamp(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_command(self, cmd):
+        print(f"smart lamp {self.name} received command: {cmd}.")
+
+class SmartSpeaker(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_command(self, cmd):
+        print(f"smart speaker {self.name} received command: {cmd}.")
+
+class Smarthome(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_command(self, cmd):
+        print(f"smart home {self.name} received command: {cmd}.")
+smart_list = [SmartTV("LG"), SmartLamp("Desk Lamp"), SmartSpeaker("Echo"), Smarthome("home ped")]
+for device in smart_list:
+    device.run_command("say hi")
