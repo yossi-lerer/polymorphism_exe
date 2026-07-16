@@ -289,10 +289,36 @@ class HomeSystem:
 HomeSystem().activate_all()
 HomeSystem().deactivate_all()
 HomeSystem().system_report()
-# # step 10 - Alarm Integration
-# class Device:
-#     def __init__(self, name):
-#         self.name = name
-#     def trigger_alarm(self, alert_type):
-#         print(f"{self.name} received alert: {alert_type}.")
-# class SmartLamp(Device):
+# step 10 - Alarm Integration
+class Device:
+    def __init__(self, name):
+        self.name = name
+    def trigger_alarm(self, alert_type):
+        print(f"{self.name} received alert: {alert_type}.")
+class SmartLamp(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def trigger_alarm(self, alert_type):
+        print(f"{self.name} flash: {alert_type}.")
+class SmartSpeaker(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def trigger_alarm(self, alert_type):
+        print(f"{self.name} smart speaker: {alert_type}.")
+class SmartTV(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def trigger_alarm(self, alert_type):
+        print(f"{self.name} smart TV: {alert_type}.")
+class SmartDoorLock(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def trigger_alarm(self, alert_type):
+        print(f"{self.name} smart door lock: {alert_type}.")
+class AlarmSystem:
+    def __init__(self):
+        self.list_device = [SmartLamp("xiaomi"), SmartSpeaker("alexa"), SmartTV("LG"), SmartDoorLock("agdaba")]
+    def send_alert(self, alert_type):
+        for device in self.list_device:
+            device.trigger_alarm(alert_type)
+alerm = AlarmSystem().send_alert("fire")
