@@ -299,22 +299,22 @@ class SmartLamp(Device):
     def __init__(self, name):
         super().__init__(name)
     def trigger_alarm(self, alert_type):
-        print(f"{self.name} flash: {alert_type}.")
+        print(f"{self.name} flash on/off message: {alert_type}.")
 class SmartSpeaker(Device):
     def __init__(self, name):
         super().__init__(name)
     def trigger_alarm(self, alert_type):
-        print(f"{self.name} smart speaker: {alert_type}.")
+        print(f"{self.name} play alarm sound message: {alert_type}.")
 class SmartTV(Device):
     def __init__(self, name):
         super().__init__(name)
     def trigger_alarm(self, alert_type):
-        print(f"{self.name} smart TV: {alert_type}.")
+        print(f"{self.name} show emergency broadcast message: {alert_type}.")
 class SmartDoorLock(Device):
     def __init__(self, name):
         super().__init__(name)
     def trigger_alarm(self, alert_type):
-        print(f"{self.name} smart door lock: {alert_type}.")
+        print(f"{self.name} lock and print confirmation: {alert_type}.")
 class AlarmSystem:
     def __init__(self):
         self.list_device = [SmartLamp("xiaomi"), SmartSpeaker("alexa"), SmartTV("LG"), SmartDoorLock("agdaba")]
@@ -339,3 +339,4 @@ class Coffee:
         return self.coffe_price
 meduim_coffe = Coffee(5)
 meduim_coffe.price()
+# step 2 - Pizza Toppings
