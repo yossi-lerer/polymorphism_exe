@@ -225,29 +225,57 @@ class Device:
         print(f"Device {self.name} is now off.")
     def status(self):
         print(f"status: {self.name}")
-smarttv = Device("smart tv LG")
-smarttv.activate()
-smarttv.deactivate()
-smarttv.status()
-smart_home = Device("smart home")
-smart_home.activate()
-smart_home.deactivate()
-smart_home.status()
-smart_ped = Device("smart ped")
-smart_ped.activate()
-smart_ped.deactivate()
-smart_ped.status()
-smart_phone = Device("smart phone")
-smart_phone.activate()
-smart_phone.deactivate()
-smart_phone.status()
-smart_power = Device("smart power")
-smart_power.activate()
-smart_power.deactivate()
-smart_power.status()
+class SmartTv(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"smarttv {self.name} is now on.")
+    def deactivate(self):
+        print(f"smarttv {self.name} is now off.")
+    def status(self):
+        print(f"status smarttv: {self.name}")
+class Smart_home(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"smart home {self.name} is now on.")
+    def deactivate(self):
+        print(f"smart home {self.name} is now off.")
+    def status(self):
+        print(f"status smart home: {self.name}")
+class Smart_ped(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"smart ped {self.name} is now on.")
+    def deactivate(self):
+        print(f"smart ped {self.name} is now off.")
+    def status(self):
+        print(f"status smart ped: {self.name}")
+    
+class Smart_phone(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"smart phone {self.name} is now on.")
+    def deactivate(self):
+        print(f"smart phone {self.name} is now off.")
+    def status(self):
+        print(f"status smart phone: {self.name}")
+
+class Smart_power(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"smart power {self.name} is now on.")
+    def deactivate(self):
+        print(f"smart power {self.name} is now off.")
+    def status(self):
+        print(f"status smart power: {self.name}")
+
 class HomeSystem:
     def __init__(self):
-        self.devices_lst = [Device("smart tv LG"), Device("smart home"), Device("smart ped"), Device("smart phone"), Device("smart power")]
+        self.devices_lst = [SmartTv("smart tv LG"), Smart_home("smart home"), Smart_ped("smart ped"), Smart_phone("smart phone"), Smart_power("smart power")]
     def activate_all(self):
         for device in self.devices_lst:
             device.activate()
@@ -261,3 +289,10 @@ class HomeSystem:
 HomeSystem().activate_all()
 HomeSystem().deactivate_all()
 HomeSystem().system_report()
+# # step 10 - Alarm Integration
+# class Device:
+#     def __init__(self, name):
+#         self.name = name
+#     def trigger_alarm(self, alert_type):
+#         print(f"{self.name} received alert: {alert_type}.")
+# class SmartLamp(Device):
