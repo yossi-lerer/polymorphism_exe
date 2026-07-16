@@ -299,22 +299,22 @@ class SmartLamp(Device):
     def __init__(self, name):
         super().__init__(name)
     def trigger_alarm(self, alert_type):
-        print(f"{self.name} flash: {alert_type}.")
+        print(f"{self.name} flash on/off message: {alert_type}.")
 class SmartSpeaker(Device):
     def __init__(self, name):
         super().__init__(name)
     def trigger_alarm(self, alert_type):
-        print(f"{self.name} smart speaker: {alert_type}.")
+        print(f"{self.name} play alarm sound message: {alert_type}.")
 class SmartTV(Device):
     def __init__(self, name):
         super().__init__(name)
     def trigger_alarm(self, alert_type):
-        print(f"{self.name} smart TV: {alert_type}.")
+        print(f"{self.name} show emergency broadcast message: {alert_type}.")
 class SmartDoorLock(Device):
     def __init__(self, name):
         super().__init__(name)
     def trigger_alarm(self, alert_type):
-        print(f"{self.name} smart door lock: {alert_type}.")
+        print(f"{self.name} lock and print confirmation: {alert_type}.")
 class AlarmSystem:
     def __init__(self):
         self.list_device = [SmartLamp("xiaomi"), SmartSpeaker("alexa"), SmartTV("LG"), SmartDoorLock("agdaba")]
@@ -322,3 +322,21 @@ class AlarmSystem:
         for device in self.list_device:
             device.trigger_alarm(alert_type)
 alerm = AlarmSystem().send_alert("fire")
+# self learn
+# step 1 - Basic Coffee Decorator
+class MilkDecorator:
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args, **kwds):
+        print("the final price is 28 shekel")
+
+class Coffee:
+    def __init__(self, coffe_price):
+        self.coffe_price = coffe_price
+    @MilkDecorator
+    def price(self):
+        print("the price wite out milk is 15")
+        return self.coffe_price
+meduim_coffe = Coffee(5)
+meduim_coffe.price()
+# step 2 - Pizza Toppings
