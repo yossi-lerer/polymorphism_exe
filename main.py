@@ -322,3 +322,20 @@ class AlarmSystem:
         for device in self.list_device:
             device.trigger_alarm(alert_type)
 alerm = AlarmSystem().send_alert("fire")
+# self learn
+# step 1 - Basic Coffee Decorator
+class MilkDecorator:
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args, **kwds):
+        print("the final price is 28 shekel")
+
+class Coffee:
+    def __init__(self, coffe_price):
+        self.coffe_price = coffe_price
+    @MilkDecorator
+    def price(self):
+        print("the price wite out milk is 15")
+        return self.coffe_price
+meduim_coffe = Coffee(5)
+meduim_coffe.price()
